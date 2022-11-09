@@ -1,0 +1,21 @@
+.errorContainer {
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.2rem;
+}
+.errorContent {
+  padding: 0 3rem;
+}
+.errorText {
+  font-size: 2rem;
+}
+.errorDetailContainer {
+  flex-grow: 1;
+}
+.errorDetailText {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  font-size: 1.4rem;
+}

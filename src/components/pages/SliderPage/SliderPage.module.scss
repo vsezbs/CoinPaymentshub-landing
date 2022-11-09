@@ -1,0 +1,70 @@
+.container {
+  height: 100vh;
+  background-color: transparent;
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: 'Начать принимать криптоплатежи';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 5.9rem;
+    color: #000000;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, 0);
+  }
+  &::after {
+    position: absolute;
+    content: 'Легко настраивайте СoinPaymentshub на самых популярных \A
+    платформах электронной коммерции';
+    white-space: pre;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 130%;
+    text-align: center;
+    color: #000000;
+    left: 50%;
+    top: 29%;
+    transform: translate(-50%, 0);
+  }
+}
+
+.horizontal {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.horizontal > section {
+  display: flex;
+  justify-content: flex-start;
+  height: 29.7rem;
+  width: 43rem;
+  background: #ffffff;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 20px;
+  margin-top: 20vh;
+}
+.horizontal:first-child {
+  margin-left: 35%;
+}
+.horizontal:last-child {
+  margin-right: 25%;
+}
+
+.kek {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+  font-size: 5rem;
+}

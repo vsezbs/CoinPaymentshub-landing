@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Open Sans Rounded';
+  /* src: url('Inter-Regular.eot'); */
+  src: local('Open Sans Rounded Regular'), local('Open-Sans-Rounded-Regular'),
+    url('OpenSansRounded-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans Rounded';
+  /* src: url('Inter-LightBETA.eot'); */
+  src: local('Open Sans Rounded Light'), local('Open-Sans-Rounded-Light'),
+    url('OpenSansRounded-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans Rounded';
+  /* src: url('Inter-Bold.eot'); */
+  src: local('Open Sans Rounded Bold'), local('Open-Sans-Rounded-Bold'),
+    url('OpenSansRounded-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans Rounded';
+  /* src: url('Inter-ExtraBold.eot'); */
+  src: local('Open Sans Rounded Extra Bold'), local('Open-Sans-Rounded-ExtraBold'),
+    url('OpenSansRounded-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}

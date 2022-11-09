@@ -1,0 +1,41 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5.1rem;
+  align-items: center;
+  height: 12vh;
+  position: fixed;
+  width: calc(100% - 10.2rem);
+  z-index: 1;
+
+  .logo {
+    width: 19rem;
+    height: 3rem;
+    svg {
+      width: 19rem;
+      height: 3rem;
+    }
+  }
+  .nav_list {
+    display: flex;
+    align-items: baseline;
+
+    li {
+      cursor: pointer;
+      list-style: none;
+      margin-right: 4rem;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      color: #6e6e73;
+      padding: 1rem 2rem;
+
+      transition: 0.3s ease-in-out;
+
+      &:hover {
+        color: #000000;
+      }
+    }
+  }
+}
