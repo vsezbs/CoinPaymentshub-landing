@@ -219,3 +219,13 @@ h1 {
   // background-color: antiquewhite;
   transition: 1s ease-in-out;
 }
+
+@media (max-width: 768px) {
+  #canvas {
+    top: 10vh;
+  }
+  .circle {
+    width: 30rem;
+    height: 30rem;
+  }
+}

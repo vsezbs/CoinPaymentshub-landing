@@ -8,6 +8,22 @@ header {
   width: calc(100% - 10.2rem);
   z-index: 1;
 
+  &.header_mobile {
+    height: 3vh;
+    padding: 3rem 3rem 0;
+    height: initial;
+    width: calc(100% - 6rem);
+    .logo {
+      width: 10.5rem;
+      height: 1.7rem;
+
+      svg {
+        width: 10.5rem;
+        height: 1.7rem;
+      }
+    }
+  }
+
   .logo {
     width: 19rem;
     height: 3rem;
