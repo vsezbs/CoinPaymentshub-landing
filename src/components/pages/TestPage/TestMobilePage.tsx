@@ -68,6 +68,12 @@ const TestMobilePage = () => {
       let bodyScrollBar = Scrollbar.init(scrollerRef.current, {
         damping: 0.1,
         delegateTo: document,
+        plugins: {
+          overscroll: {
+            enable: true,
+            maxOverScroll: 15,
+          },
+        },
       })
       ScrollTrigger.scrollerProxy('.scroller', {
         scrollTop(value) {
