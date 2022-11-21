@@ -86,7 +86,7 @@ const TestMobilePage = () => {
             trigger: '.one',
             scroller: '.scroller',
             start: () => 'top top',
-            end: () => '+=500px',
+            end: () => '+=2000px',
             pin: '.one',
             scrub: 0.5,
             // pinSpacing: false,
