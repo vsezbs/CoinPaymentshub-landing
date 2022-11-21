@@ -26,143 +26,106 @@ const TestMobilePage = () => {
   const bubbleRef = useRef<HTMLDivElement>(null)
   const circleRef = useRef<HTMLDivElement>(null)
 
-  const handleMouseEnter = (e: any) => {
-    if (circleRef?.current) {
-      let parentOffset = circleRef.current.getBoundingClientRect()
-
-      let relX = e.pageX - parentOffset.left
-      let relY = e.pageY - parentOffset.top
-
-      console.log('tut1')
-      console.log('p', parentOffset)
-      console.log('X', relX)
-      console.log('Y', relY)
-      circleRef.current.style.top = `${relY}`
-      circleRef.current.style.left = `${relX}`
-      circleRef.current.classList.remove(s.desplode_circle)
-      circleRef.current.classList.add(s.explode_circle)
-    }
-  }
-
-  const handleMouseLeave = (e: any) => {
-    if (circleRef?.current) {
-      let parentOffset = circleRef.current.getBoundingClientRect()
-
-      let relX = e.pageX - parentOffset.left
-      let relY = e.pageY - parentOffset.top
-
-      console.log('tut2')
-      console.log('p', parentOffset)
-      console.log('X', relX)
-      console.log('Y', relY)
-
-      circleRef.current.style.top = `${relY}`
-      circleRef.current.style.left = `${relX}`
-      circleRef.current.classList.remove(s.explode_circle)
-      circleRef.current.classList.add(s.desplode_circle)
-    }
-  }
-
   useEffect(() => {
     if (scrollerRef && scrollerRef.current) {
-      let bodyScrollBar = Scrollbar.init(scrollerRef.current, {
-        damping: 0.1,
-        delegateTo: document,
-        plugins: {
-          overscroll: {
-            enable: true,
-            maxOverScroll: 15,
-          },
-        },
-      })
-      ScrollTrigger.scrollerProxy('.scroller', {
-        scrollTop(value) {
-          if (arguments.length) {
-            //@ts-ignore
-            bodyScrollBar.scrollTop = value
-          }
-          return bodyScrollBar.scrollTop
-        },
-      })
-      bodyScrollBar.addListener(ScrollTrigger.update)
+      // let bodyScrollBar = Scrollbar.init(scrollerRef.current, {
+      //   damping: 0.1,
+      //   thumbMinSize: 1,
+      //   delegateTo: document,
+      //   renderByPixels: true,
+      //   // plugins: {
+      //   //   overscroll: {
+      //   //     damping: 0.05,
+      //   //     enable: false,
+      //   //     maxOverScroll: 50,
+      //   //     effect: 'bounce',
+      //   //   },
+      //   // },
+      // })
+      // ScrollTrigger.scrollerProxy('.scroller', {
+      //   scrollTop(value) {
+      //     if (arguments.length) {
+      //       //@ts-ignore
+      //       bodyScrollBar.scrollTop = value
+      //     }
+      //     return bodyScrollBar.scrollTop
+      //   },
+      // })
+      // bodyScrollBar.addListener(ScrollTrigger.update)
 
       let ctx = gsap.context(() => {
-        const firstTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.one',
-            scroller: '.scroller',
-            start: () => 'top top',
-            end: () => '+=2000px',
-            pin: '.one',
-            scrub: 0.5,
-            // pinSpacing: false,
-            snap: 0.1,
-            invalidateOnRefresh: true,
-          },
-        })
-
-        firstTl
-          .fromTo(
-            '.logo',
-            { ease: 'none', opacity: 1 },
-            { ease: 'none', opacity: 0, y: -10, delay: 0.5 },
-            'li',
-          )
-          .fromTo(
-            '.h1-wrapper',
-            { ease: 'power.out', opacity: 1, zIndex: 1 },
-            { ease: 'power.in', opacity: 1 },
-            'li',
-          )
-
-          .fromTo(
-            '.h1-wrapper',
-            { opacity: 1 },
-            {
-              opacity: 1,
-              onReverseComplete() {
-                // circleRef.current.style.backgroundColor = 'antiquewhite'
-              },
-            },
-          )
-          .fromTo(
-            '.h1-wrapper',
-            { ease: 'power.out', opacity: 1, duration: 2 },
-            { ease: 'power.in', opacity: 0, y: -30, duration: 2 },
-            'h1',
-          )
-          .fromTo(
-            '#canvas',
-            { ease: 'power.out', opacity: 1 },
-            { ease: 'power.in', opacity: 0.3 },
-            'h1',
-          )
-          .fromTo(
-            '.h2-wrapper',
-            { opacity: 0, y: -100, duration: 2 },
-            { opacity: 1, y: -110, delay: 1.5, duration: 2 },
-            'h1',
-          )
-
-          .fromTo('.h2-wrapper', { opacity: 1 }, { opacity: 1, delay: 2 })
-
-        gsap.to('.container', {
-          scrollTrigger: {
-            trigger: 'section.container',
-            scroller: '.scroller',
-            start: () => 'top 50%',
-            onEnter: () => {
-              gsap.to('body', {
-                duration: 1,
-                backgroundColor: '#F7F8FB',
-              })
-            },
-            onLeaveBack: () => {
-              gsap.to('body', { duration: 1, backgroundColor: '#FFEFFB' })
-            },
-            invalidateOnRefresh: true,
-          },
-        })
+        // const firstTl = gsap.timeline({
+        //   scrollTrigger: {
+        //     trigger: '.one',
+        //     scroller: '.scroller',
+        //     start: () => 'top top',
+        //     end: () => '+=300px',
+        //     pin: '.one',
+        //     scrub: 0.5,
+        //     // pinSpacing: false,
+        //     // snap: 0.1,
+        //     invalidateOnRefresh: true,
+        //   },
+        // })
+        // firstTl
+        //   .fromTo(
+        //     '.logo',
+        //     { ease: 'none', opacity: 1 },
+        //     { ease: 'none', opacity: 0, y: -10, delay: 0.5 },
+        //     'li',
+        //   )
+        //   .fromTo(
+        //     '.h1-wrapper',
+        //     { ease: 'power.out', opacity: 1, zIndex: 1 },
+        //     { ease: 'power.in', opacity: 1 },
+        //     'li',
+        //   )
+        //   .fromTo(
+        //     '.h1-wrapper',
+        //     { opacity: 1 },
+        //     {
+        //       opacity: 1,
+        //       onReverseComplete() {
+        //         // circleRef.current.style.backgroundColor = 'antiquewhite'
+        //       },
+        //     },
+        //   )
+        // .fromTo(
+        //   '.h1-wrapper',
+        //   { ease: 'power.out', opacity: 1, duration: 2 },
+        //   { ease: 'power.in', opacity: 0, y: -30, duration: 2 },
+        //   'h1',
+        // )
+        // .fromTo(
+        //   '#canvas',
+        //   { ease: 'power.out', opacity: 1 },
+        //   { ease: 'power.in', opacity: 0.3 },
+        //   'h1',
+        // )
+        // .fromTo(
+        //   '.h2-wrapper',
+        //   { opacity: 0, y: -100, duration: 2 },
+        //   { opacity: 1, y: -110, delay: 1.5, duration: 2 },
+        //   'h1',
+        // )
+        // .fromTo('.h2-wrapper', { opacity: 1 }, { opacity: 1, delay: 2 })
+        // gsap.to('.container', {
+        //   scrollTrigger: {
+        //     trigger: 'section.container',
+        //     scroller: '.scroller',
+        //     start: () => 'top 50%',
+        //     onEnter: () => {
+        //       gsap.to('body', {
+        //         duration: 1,
+        //         backgroundColor: '#F7F8FB',
+        //       })
+        //     },
+        //     onLeaveBack: () => {
+        //       gsap.to('body', { duration: 1, backgroundColor: '#FFEFFB' })
+        //     },
+        //     invalidateOnRefresh: true,
+        //   },
+        // })
       })
       return () => ctx.revert()
     }
@@ -172,9 +135,9 @@ const TestMobilePage = () => {
     <div>
       <div className={`scroller ${s.scroller}`} ref={scrollerRef}>
         <section className="one">
-          <div className={`h1-wrapper ${s.h1_wrapper}`}>
-            <div className={`title ${s.h1_title}`}>Принимайте платежи в криптовалюте</div>
-            <div className={`subtitle ${s.h1_subtitle}`}>Анонимно. Безопасно. Проще.</div>
+          <div className={`${s.h1_wrapper}`}>
+            <div className={`${s.h1_title}`}>Принимайте платежи в криптовалюте</div>
+            <div className={` ${s.h1_subtitle}`}>Анонимно. Безопасно. Проще.</div>
             <div className={s.button}>
               <MagnetButton
                 onClick={() => {
@@ -186,7 +149,7 @@ const TestMobilePage = () => {
               </MagnetButton>
             </div>
           </div>
-          <div className={`h2-wrapper ${s.h1_wrapper}`}>
+          <div className={`${s.h1_wrapper} ${s.h2_wrapper}`}>
             <div className={`${s.h1_title} ${s.h2_title}`}>
               Самые популярные <br /> криптовалюты уже <br /> доступны
             </div>
@@ -214,7 +177,7 @@ const TestMobilePage = () => {
           <AnimateBubble ref={bubbleRef} />
         </section>
 
-        <section>
+        <section className={s.slides_wrapper}>
           <div className={`${s.slide_mobile} ${s.slide_purple}`}>
             <div className={s.slide_img}>
               <img src={slidePurple} alt="" />
@@ -342,11 +305,7 @@ const TestMobilePage = () => {
           <div className={s.connect}>
             <div className={s.connect_circle_wrapper}>
               <div className={s.connect_circle} ref={circleRef} />
-              <div
-                className={s.connect_circle_inner}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
+              <div className={s.connect_circle_inner}>
                 <div className={s.connect_circle_title}>Подключить</div>
                 <div className={s.connect_circle_icon}>
                   <img src={fingerImg} alt="" />

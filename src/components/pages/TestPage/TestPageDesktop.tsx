@@ -239,7 +239,7 @@ const TestPageDesktop = () => {
             pin: '.container',
             snap: 5 / horizontalSection.scrollWidth,
             scrub: true,
-            markers: true,
+            // markers: true,
             invalidateOnRefresh: true,
           },
         })

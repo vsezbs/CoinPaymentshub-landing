@@ -55,3 +55,86 @@ header {
     }
   }
 }
+
+nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  &.active {
+    width: 0;
+    height: 0;
+  }
+}
+
+.background {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  // height: 100%;
+  background: #fff;
+  // z-index: -1;
+  &.active {
+    // z-index: 1;
+    width: 0;
+    height: 0;
+  }
+}
+
+.button {
+  outline: none;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 1.8rem;
+  right: 1.5rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.ul,
+.li {
+  margin: 0;
+  padding: 0;
+}
+
+.ul {
+  padding: 2.5rem;
+  position: absolute;
+  top: 10rem;
+  width: calc(100% - 5rem);
+}
+
+.li {
+  list-style: none;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+
+  &:last-child {
+    .li_link {
+      background: var(--btn-blue);
+      color: #fff;
+      padding: 1.1rem 4.1rem;
+      border-radius: 1000px;
+    }
+  }
+  .li_link {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    margin-bottom: 3rem;
+  }
+}

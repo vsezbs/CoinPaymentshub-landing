@@ -64,14 +64,18 @@
 
 @media (max-width: 768px) {
   .h1_wrapper {
-    margin-top: calc(15rem + 10vh);
+    margin-top: 50rem;
     width: 100%;
+
+    &.h2_wrapper {
+      margin-top: 3rem;
+    }
     .h1_title {
       font-size: 3.2rem;
       line-height: 110%;
 
       &.h2_title {
-        margin-top: 40rem;
+        margin-top: 0rem;
       }
       // margin-bottom: ;
     }
@@ -382,7 +386,8 @@
   align-items: center;
   .connect_circle_wrapper {
     position: relative;
-    overflow: hidden;
+    // overflow: hidden;
+    border-radius: 50%;
     .connect_circle {
       background-color: red;
       border-radius: 1000px;
@@ -405,8 +410,10 @@
       justify-content: center;
       flex-direction: column;
       transition: 0.3s ease-in-out;
+      box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.15);
       &:hover {
         background: #33a9ff;
+        box-shadow: 0px 25px 50px rgba(51, 169, 255, 0.4);
         .connect_circle_title {
           color: #ffffff;
         }
@@ -440,11 +447,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    // padding: 15rem 0 10rem;
     margin-top: 15rem;
-    padding-bottom: 10rem;
+    padding-bottom: 15rem;
     .connect_circle_wrapper {
       position: relative;
-      overflow: hidden;
+      // overflow: hidden;
       .connect_circle {
         background-color: red;
         border-radius: 1000px;
@@ -467,6 +475,7 @@
         justify-content: center;
         flex-direction: column;
         transition: 0.3s ease-in-out;
+
         &:hover {
           background: #33a9ff;
           .connect_circle_title {
@@ -566,7 +575,7 @@
   width: 100%;
   padding: 6.6rem 2rem;
   box-sizing: border-box;
-
+  height: 100vh;
   &.slide_purple {
     background: #f5ebff;
   }
@@ -638,6 +647,7 @@
   .horizontal_items {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 2rem;
 
     .horizontal_item {
@@ -667,4 +677,8 @@
       }
     }
   }
+}
+
+.slides_wrapper {
+  margin-top: 12rem;
 }
