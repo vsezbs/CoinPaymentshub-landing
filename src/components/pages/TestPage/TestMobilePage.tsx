@@ -89,6 +89,8 @@ const TestMobilePage = () => {
             end: () => '+=500px',
             pin: '.one',
             scrub: 0.5,
+            // pinSpacing: false,
+            snap: 0.1,
             invalidateOnRefresh: true,
           },
         })

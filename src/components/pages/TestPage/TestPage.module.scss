@@ -1,3 +1,6 @@
+.scroller {
+  transform: translateZ(0);
+}
 .left_block {
   padding-left: 1rem;
   .title {
@@ -61,7 +64,7 @@
 
 @media (max-width: 768px) {
   .h1_wrapper {
-    margin-top: 15rem;
+    margin-top: calc(25rem + 10vh);
     width: 100%;
     .h1_title {
       font-size: 3.2rem;
