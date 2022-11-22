@@ -7,6 +7,7 @@ import { ReactComponent as VkIcon } from 'images/icons/vk.svg'
 import { ReactComponent as IgIcon } from 'images/icons/ig.svg'
 import { ReactComponent as TgIcon } from 'images/icons/tg.svg'
 import { AnimateBubble } from 'components/common/AnimateBubble/AnimateBubble'
+import Button from 'components/common/Button/Button'
 
 import tronImg from '../../../images/tron.png'
 import ethImg from '../../../images/eth.png'
@@ -25,44 +26,6 @@ const TestPageDesktop = () => {
   const scrollerRef = useRef<any>(null)
   const horizontalRef = useRef<any>(null)
   const bubbleRef = useRef<HTMLDivElement>(null)
-  const circleRef = useRef<HTMLDivElement>(null)
-
-  const handleMouseEnter = (e: any) => {
-    if (circleRef?.current) {
-      let parentOffset = circleRef.current.getBoundingClientRect()
-
-      let relX = e.pageX - parentOffset.left
-      let relY = e.pageY - parentOffset.top
-
-      console.log('tut1')
-      console.log('p', parentOffset)
-      console.log('X', relX)
-      console.log('Y', relY)
-      circleRef.current.style.top = `${relY}`
-      circleRef.current.style.left = `${relX}`
-      circleRef.current.classList.remove(s.desplode_circle)
-      circleRef.current.classList.add(s.explode_circle)
-    }
-  }
-
-  const handleMouseLeave = (e: any) => {
-    if (circleRef?.current) {
-      let parentOffset = circleRef.current.getBoundingClientRect()
-
-      let relX = e.pageX - parentOffset.left
-      let relY = e.pageY - parentOffset.top
-
-      console.log('tut2')
-      console.log('p', parentOffset)
-      console.log('X', relX)
-      console.log('Y', relY)
-
-      circleRef.current.style.top = `${relY}`
-      circleRef.current.style.left = `${relX}`
-      circleRef.current.classList.remove(s.explode_circle)
-      circleRef.current.classList.add(s.desplode_circle)
-    }
-  }
 
   useEffect(() => {
     if (scrollerRef && scrollerRef.current) {
@@ -87,7 +50,7 @@ const TestPageDesktop = () => {
             trigger: '.one',
             scroller: '.scroller',
             start: () => 'top top',
-            end: () => '+=2000px',
+            end: () => '+=1000px',
             pin: '.one',
             scrub: 0.5,
             invalidateOnRefresh: true,
@@ -461,19 +424,7 @@ const TestPageDesktop = () => {
         </section>
         <section className={s.connect}>
           <div>
-            <div className={s.connect_circle_wrapper}>
-              <div className={s.connect_circle} ref={circleRef} />
-              <div
-                className={s.connect_circle_inner}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
-                <div className={s.connect_circle_title}>Подключиться</div>
-                <div className={s.connect_circle_icon}>
-                  <img src={fingerImg} alt="" />
-                </div>
-              </div>
-            </div>
+            <Button />
           </div>
         </section>
         <section className={s.footer}>
