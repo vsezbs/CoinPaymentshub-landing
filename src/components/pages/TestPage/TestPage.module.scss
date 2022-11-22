@@ -563,6 +563,11 @@
         line-height: 2.2rem;
         color: #ffffff;
         margin-bottom: 0.5rem;
+        cursor: pointer;
+
+        &:hover {
+          color: #cccccc;
+        }
       }
     }
   }
@@ -577,6 +582,7 @@
       line-height: 22px;
       color: #ffffff;
       opacity: 0.6;
+      pointer-events: none;
       span {
         font-weight: 600;
       }
@@ -592,6 +598,7 @@
           height: 2.2rem;
           margin-left: 2rem;
           opacity: 0.6;
+          cursor: pointer;
           svg {
             width: 2.2rem;
             height: 2.2rem;
