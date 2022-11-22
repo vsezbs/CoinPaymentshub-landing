@@ -8,6 +8,9 @@ import { ReactComponent as IgIcon } from 'images/icons/ig.svg'
 import { ReactComponent as TgIcon } from 'images/icons/tg.svg'
 import { AnimateBubble } from 'components/common/AnimateBubble/AnimateBubble'
 import Button from 'components/common/Button/Button'
+import coinImg from 'images/coin.png'
+import upImg from 'images/up.png'
+import moneyImg from 'images/money.png'
 
 import tronImg from '../../../images/tron.png'
 import ethImg from '../../../images/eth.png'
@@ -15,7 +18,6 @@ import binanceImg from '../../../images/binance.png'
 import btcImg from '../../../images/btc.png'
 import ltcImg from '../../../images/ltc.png'
 import dashImg from '../../../images/dash.png'
-import fingerImg from '../../../images/finger.png'
 import sl from '../SliderPage/SliderPage.module.scss'
 
 import s from './TestPage.module.scss'
@@ -299,6 +301,7 @@ const TestPageDesktop = () => {
                       onClick={() => {
                         console.log('click')
                       }}
+                      buttonClass={`${s.btn} ${s.blue_btn} `}
                     >
                       Попробовать
                     </MagnetButton>
@@ -314,6 +317,7 @@ const TestPageDesktop = () => {
                       onClick={() => {
                         console.log('click')
                       }}
+                      buttonClass={`${s.btn} ${s.red_btn}`}
                     >
                       Попробовать
                     </MagnetButton>
@@ -332,6 +336,7 @@ const TestPageDesktop = () => {
                       onClick={() => {
                         console.log('click')
                       }}
+                      buttonClass={`${s.btn} ${s.orange_btn}`}
                     >
                       Попробовать
                     </MagnetButton>
@@ -353,6 +358,9 @@ const TestPageDesktop = () => {
           <div className={`horizontal ${sl.horizontal}`} ref={horizontalRef}>
             <section>
               <div className={s.slide}>
+                <div className={s.slide_icon}>
+                  <img src={coinImg} alt="" />
+                </div>
                 <div className={s.slide_title}>
                   Возможность добавлять <br /> свои токены сетей <br /> и процессить их
                 </div>
@@ -364,6 +372,9 @@ const TestPageDesktop = () => {
             </section>
             <section>
               <div className={s.slide}>
+                <div className={s.slide_icon}>
+                  <img src={upImg} alt="" />
+                </div>
                 <div className={s.slide_title}>
                   Возможность загружать <br /> свои кошельки
                 </div>
@@ -375,6 +386,9 @@ const TestPageDesktop = () => {
             </section>
             <section>
               <div className={s.slide}>
+                <div className={s.slide_icon}>
+                  <img src={moneyImg} alt="" />
+                </div>
                 <div className={s.slide_title}>
                   Возможность принимать недоплаты и привязать кошельки по клиентам
                 </div>

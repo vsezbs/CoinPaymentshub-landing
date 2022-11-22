@@ -7,6 +7,9 @@ import { AnimateBubble } from 'components/common/AnimateBubble/AnimateBubble'
 import slidePink from 'images/slide-pink.png'
 import slidePurple from 'images/slide-purple.png'
 import slideBlue from 'images/slide-blue.png'
+import coinImg from 'images/coin.png'
+import upImg from 'images/up.png'
+import moneyImg from 'images/money.png'
 
 import tronImg from '../../../images/tron.png'
 import ethImg from '../../../images/eth.png'
@@ -28,105 +31,7 @@ const TestMobilePage = () => {
 
   useEffect(() => {
     if (scrollerRef && scrollerRef.current) {
-      // let bodyScrollBar = Scrollbar.init(scrollerRef.current, {
-      //   damping: 0.1,
-      //   thumbMinSize: 1,
-      //   delegateTo: document,
-      //   renderByPixels: true,
-      //   // plugins: {
-      //   //   overscroll: {
-      //   //     damping: 0.05,
-      //   //     enable: false,
-      //   //     maxOverScroll: 50,
-      //   //     effect: 'bounce',
-      //   //   },
-      //   // },
-      // })
-      // ScrollTrigger.scrollerProxy('.scroller', {
-      //   scrollTop(value) {
-      //     if (arguments.length) {
-      //       //@ts-ignore
-      //       bodyScrollBar.scrollTop = value
-      //     }
-      //     return bodyScrollBar.scrollTop
-      //   },
-      // })
-      // bodyScrollBar.addListener(ScrollTrigger.update)
-
-      let ctx = gsap.context(() => {
-        // const firstTl = gsap.timeline({
-        //   scrollTrigger: {
-        //     trigger: '.one',
-        //     scroller: '.scroller',
-        //     start: () => 'top top',
-        //     end: () => '+=300px',
-        //     pin: '.one',
-        //     scrub: 0.5,
-        //     // pinSpacing: false,
-        //     // snap: 0.1,
-        //     invalidateOnRefresh: true,
-        //   },
-        // })
-        // firstTl
-        //   .fromTo(
-        //     '.logo',
-        //     { ease: 'none', opacity: 1 },
-        //     { ease: 'none', opacity: 0, y: -10, delay: 0.5 },
-        //     'li',
-        //   )
-        //   .fromTo(
-        //     '.h1-wrapper',
-        //     { ease: 'power.out', opacity: 1, zIndex: 1 },
-        //     { ease: 'power.in', opacity: 1 },
-        //     'li',
-        //   )
-        //   .fromTo(
-        //     '.h1-wrapper',
-        //     { opacity: 1 },
-        //     {
-        //       opacity: 1,
-        //       onReverseComplete() {
-        //         // circleRef.current.style.backgroundColor = 'antiquewhite'
-        //       },
-        //     },
-        //   )
-        // .fromTo(
-        //   '.h1-wrapper',
-        //   { ease: 'power.out', opacity: 1, duration: 2 },
-        //   { ease: 'power.in', opacity: 0, y: -30, duration: 2 },
-        //   'h1',
-        // )
-        // .fromTo(
-        //   '#canvas',
-        //   { ease: 'power.out', opacity: 1 },
-        //   { ease: 'power.in', opacity: 0.3 },
-        //   'h1',
-        // )
-        // .fromTo(
-        //   '.h2-wrapper',
-        //   { opacity: 0, y: -100, duration: 2 },
-        //   { opacity: 1, y: -110, delay: 1.5, duration: 2 },
-        //   'h1',
-        // )
-        // .fromTo('.h2-wrapper', { opacity: 1 }, { opacity: 1, delay: 2 })
-        // gsap.to('.container', {
-        //   scrollTrigger: {
-        //     trigger: 'section.container',
-        //     scroller: '.scroller',
-        //     start: () => 'top 50%',
-        //     onEnter: () => {
-        //       gsap.to('body', {
-        //         duration: 1,
-        //         backgroundColor: '#F7F8FB',
-        //       })
-        //     },
-        //     onLeaveBack: () => {
-        //       gsap.to('body', { duration: 1, backgroundColor: '#FFEFFB' })
-        //     },
-        //     invalidateOnRefresh: true,
-        //   },
-        // })
-      })
+      let ctx = gsap.context(() => {})
       return () => ctx.revert()
     }
   }, [])
@@ -191,7 +96,7 @@ const TestMobilePage = () => {
                 onClick={() => {
                   console.log('click')
                 }}
-                buttonClass={s.btn}
+                buttonClass={`${s.btn} ${s.blue_btn} `}
               >
                 Попробовать
               </MagnetButton>
@@ -210,7 +115,7 @@ const TestMobilePage = () => {
                 onClick={() => {
                   console.log('click')
                 }}
-                buttonClass={s.btn}
+                buttonClass={`${s.btn} ${s.red_btn}`}
               >
                 Попробовать
               </MagnetButton>
@@ -229,7 +134,7 @@ const TestMobilePage = () => {
                 onClick={() => {
                   console.log('click')
                 }}
-                buttonClass={s.btn}
+                buttonClass={`${s.btn} ${s.orange_btn}`}
               >
                 Попробовать
               </MagnetButton>
@@ -243,6 +148,9 @@ const TestMobilePage = () => {
             </div>
             <div className={s.horizontal_items}>
               <div className={s.horizontal_item}>
+                <div className={s.item_icon}>
+                  <img src={coinImg} alt="" />
+                </div>
                 <div className={s.item_title}>
                   Возможность добавлять свои токены сетей и процессить их
                 </div>
@@ -252,6 +160,9 @@ const TestMobilePage = () => {
                 </div>
               </div>
               <div className={s.horizontal_item}>
+                <div className={s.item_icon}>
+                  <img src={upImg} alt="" />
+                </div>
                 <div className={s.item_title}>Возможность загружать свои кошельки</div>
                 <div className={s.item_subtitle}>
                   Доступ только у владельцев проектов, можно в любое время экспортировать приватный
@@ -259,6 +170,9 @@ const TestMobilePage = () => {
                 </div>
               </div>
               <div className={s.horizontal_item}>
+                <div className={s.item_icon}>
+                  <img src={moneyImg} alt="" />
+                </div>
                 <div className={s.item_title}>
                   Возможность принимать недоплаты и привязать кошельки по клиентам
                 </div>

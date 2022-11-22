@@ -101,6 +101,12 @@ nav {
   height: 5rem;
   border-radius: 50%;
   background: transparent;
+
+  svg {
+    path {
+      stroke-width: 2;
+    }
+  }
 }
 
 .ul,

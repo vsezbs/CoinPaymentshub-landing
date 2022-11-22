@@ -65,13 +65,9 @@ const Button = ({
           )
 
         function setPosition(e: any) {
-          var bounds = e.target.getBoundingClientRect()
-          var x = e.clientX - bounds.left
-          var y = e.clientY - bounds.top
-
-          console.log('x:', x)
-          console.log('y:', y)
-          console.log('bounds', bounds)
+          let bounds = e.target.getBoundingClientRect()
+          let x = e.clientX - bounds.left
+          let y = e.clientY - bounds.top
 
           gsap.set(circle, {
             left: `${x}px`,

@@ -109,7 +109,7 @@ const Cursor = () => {
     }
   }, [])
 
-  return isMobile ? <></> : <div className={s.dot_outline} ref={dotOutlineRef}></div>
+  return isMobile ? <></> : <div className={`${s.dot_outline} cursor`} ref={dotOutlineRef}></div>
 }
 
 export default Cursor
