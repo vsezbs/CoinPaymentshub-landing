@@ -33,13 +33,17 @@ const Header = () => {
   const isMobile = useContext(Context)
   const [isOpen, toggleOpen] = useCycle(false, true)
   const containerRef = useRef(null)
-  const [scroll, setScroll] = useState(false)
+  const [scroll, setScroll] = useState(true)
   const onStart = () => {
     setScroll(false)
   }
 
   const onComplete = () => {
-    setScroll(true)
+    if (isOpen) {
+      setScroll(false)
+    } else {
+      setScroll(true)
+    }
   }
   return (
     <header className={isMobile ? s.header_mobile : ''}>
@@ -57,7 +61,7 @@ const Header = () => {
           onAnimationComplete={onComplete}
         >
           <motion.div className={`${s.background} ${scroll ? s.active : ''}`} variants={sidebar} />
-          <Navigation />
+          <Navigation toggle={toggleOpen} />
           <MenuToggle toggle={() => toggleOpen()} />
         </motion.nav>
       ) : (

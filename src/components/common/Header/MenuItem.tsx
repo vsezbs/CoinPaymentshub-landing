@@ -23,17 +23,21 @@ const variants = {
 type MenuItemProps = {
   text: string
   i: number
+  toggle: Function
 }
 
-export const MenuItem = ({ text, i }: MenuItemProps) => {
+export const MenuItem = ({ text, i, toggle }: MenuItemProps) => {
   return (
-    <motion.li
-      variants={variants}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
-      className={s.li}
-    >
-      <div className={s.li_link}>{text}</div>
+    <motion.li className={s.li}>
+      <motion.div
+        variants={variants}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        className={s.li_link}
+        onClick={() => toggle()}
+      >
+        {text}
+      </motion.div>
     </motion.li>
   )
 }
