@@ -112,7 +112,7 @@ const TestPageDesktop = () => {
           .fromTo(
             '#canvas',
             { ease: 'power.out', opacity: 1 },
-            { ease: 'power.in', opacity: 0.3 },
+            { ease: 'power.in', opacity: 0.6 },
             'h1',
           )
           .fromTo(
