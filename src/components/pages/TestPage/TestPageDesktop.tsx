@@ -235,6 +235,47 @@ const TestPageDesktop = () => {
           end: () => '+=' + images.length * window.innerHeight,
           invalidateOnRefresh: true,
         })
+
+        const links = gsap.utils.toArray('.link')
+
+        links.forEach((link: any) => {
+          link.addEventListener('mouseover', () => {
+            gsap.to('.cursor', {
+              scale: 2,
+              autoAlpha: 1,
+              border: '1px solid #ffffff',
+              background: '#ffffff',
+              mixBlendMode: 'difference',
+            })
+          })
+          link.addEventListener('mouseout', () => {
+            gsap.to('.cursor', {
+              scale: 1,
+              autoAlpha: 1,
+              border: 'none',
+              background: '#000000',
+              mixBlendMode: 'normal',
+            })
+          })
+          link.addEventListener('mousedown', () => {
+            gsap.to('.cursor', {
+              scale: 1,
+              autoAlpha: 1,
+              border: 'none',
+              background: '#000000',
+              mixBlendMode: 'normal',
+            })
+          })
+          link.addEventListener('mouseup', () => {
+            gsap.to('.cursor', {
+              scale: 1,
+              autoAlpha: 1,
+              border: 'none',
+              background: '#000000',
+              mixBlendMode: 'normal',
+            })
+          })
+        })
       })
       return () => ctx.revert()
     }
@@ -445,26 +486,26 @@ const TestPageDesktop = () => {
           <div className={s.footer_wrapper}>
             <div className={s.footer_top}>
               <div className={s.footer_top_nav}>
-                <div className={s.link}>Коинплатежи</div>
-                <div className={s.link}>Сборы/Цены</div>
-                <div className={s.link}>Поддерживаемые валюты</div>
+                <div className={`${s.link} link`}>Коинплатежи</div>
+                <div className={`${s.link} link`}>Сборы/Цены</div>
+                <div className={`${s.link} link`}>Поддерживаемые валюты</div>
               </div>
               <div className={s.footer_top_nav}>
-                <div className={s.link}>Ресурсы</div>
-                <div className={s.link}>Для продавцов</div>
-                <div className={s.link}>Руководство по интеграции</div>
-                <div className={s.link}>Директория магазинов</div>
-                <div className={s.link}>Часто задаваемые вопросы</div>
+                <div className={`${s.link} link`}>Ресурсы</div>
+                <div className={`${s.link} link`}>Для продавцов</div>
+                <div className={`${s.link} link`}>Руководство по интеграции</div>
+                <div className={`${s.link} link`}>Директория магазинов</div>
+                <div className={`${s.link} link`}>Часто задаваемые вопросы</div>
               </div>
               <div className={s.footer_top_nav}>
-                <div className={s.link}>Контакты</div>
-                <div className={s.link}>Поддержка</div>
+                <div className={`${s.link} link`}>Контакты</div>
+                <div className={`${s.link} link`}>Поддержка</div>
               </div>
               <div className={s.footer_top_nav}>
-                <div className={s.link}>Политика сайта </div>
-                <div className={s.link}>Юрисдикции с ограниченным доступом</div>
-                <div className={s.link}>Пользовательское соглашение</div>
-                <div className={s.link}>Политика приватности</div>
+                <div className={`${s.link} link`}>Политика сайта </div>
+                <div className={`${s.link} link`}>Юрисдикции с ограниченным доступом</div>
+                <div className={`${s.link} link`}>Пользовательское соглашение</div>
+                <div className={`${s.link} link`}>Политика приватности</div>
               </div>
             </div>
             <div className={s.footer_bottom}>
@@ -475,13 +516,13 @@ const TestPageDesktop = () => {
               </div>
               <div className={s.footer_bottom_right}>
                 <div className={s.footer_social}>
-                  <div className={s.footer_icon}>
+                  <div className={`${s.footer_icon} link`}>
                     <VkIcon />
                   </div>
-                  <div className={s.footer_icon}>
+                  <div className={`${s.footer_icon} link`}>
                     <IgIcon />
                   </div>
-                  <div className={s.footer_icon}>
+                  <div className={`${s.footer_icon} link`}>
                     <TgIcon />
                   </div>
                 </div>
