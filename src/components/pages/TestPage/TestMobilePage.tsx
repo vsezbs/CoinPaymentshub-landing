@@ -40,7 +40,7 @@ const TestMobilePage = () => {
     <div>
       <div className={`scroller ${s.scroller}`} ref={scrollerRef}>
         <section className="one">
-          <div className={`${s.h1_wrapper}`}>
+          <div className={`${s.h1_wrapper} h1-wrapper-mobile`}>
             <div className={`${s.h1_title}`}>Принимайте платежи в криптовалюте</div>
             <div className={` ${s.h1_subtitle}`}>Анонимно. Безопасно. Проще.</div>
             <div className={s.button}>
@@ -54,7 +54,7 @@ const TestMobilePage = () => {
               </MagnetButton>
             </div>
           </div>
-          <div className={`${s.h1_wrapper} ${s.h2_wrapper}`}>
+          <div className={`${s.h1_wrapper} ${s.h2_wrapper}  h1-wrapper-mobile`}>
             <div className={`${s.h1_title} ${s.h2_title}`}>
               Самые популярные <br /> криптовалюты уже <br /> доступны
             </div>

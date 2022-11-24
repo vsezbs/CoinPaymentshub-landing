@@ -4,9 +4,10 @@ import MainPage from 'components/pages/MainPage/MainPage'
 import SliderPage from 'components/pages/SliderPage/SliderPage'
 // import ConnectPage from 'components/pages/ConnectPage/ConnectPage'
 import TestPage from 'components/pages/TestPage/TestPage'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import gsap from 'gsap'
+import { Context } from 'components/app/IsMobile'
 
 import s from './AppView.module.scss'
 
@@ -14,6 +15,8 @@ const AppView = () => {
   const [isLoading, setIsLoading] = useState(true)
   const loaderRef = useRef<any>(null)
   const loaderRef2 = useRef<any>(null)
+
+  const isMobile = useContext(Context)
   useEffect(() => {
     const bootstrapAsync = async () => {
       try {
@@ -24,7 +27,7 @@ const AppView = () => {
             background: 'rgb(247, 248, 251)',
           })
           tl.set('.h1-wrapper', { opacity: 0, autoAlpha: 0 })
-          tl.set('.circle', { y: 220 })
+          tl.set('.circle', { y: isMobile ? 120 : 220 })
           tl.to(
             loaderRef2.current,
             {
@@ -60,7 +63,7 @@ const AppView = () => {
               '.circle',
               {
                 y: 0,
-                delay: 0.5,
+                delay: isMobile ? 0.3 : 0.5,
                 duration: 1,
                 ease: 'power4.out',
                 opacity: 1,
@@ -69,6 +72,23 @@ const AppView = () => {
             )
           tl.fromTo(
             '.h1-wrapper',
+            {
+              y: 60,
+              opacity: 0,
+              autoAlpha: 0,
+            },
+            {
+              autoAlpha: 1,
+              y: 0,
+              delay: 1.5,
+              duration: 2,
+              opacity: 1,
+              ease: 'power4.out',
+            },
+            'f',
+          )
+          tl.fromTo(
+            '.h1-wrapper-mobile',
             {
               y: 60,
               opacity: 0,
@@ -93,6 +113,7 @@ const AppView = () => {
     bootstrapAsync().finally(() => {
       setIsLoading(false)
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

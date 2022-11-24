@@ -654,22 +654,25 @@
     margin-bottom: 3rem;
     padding: 0 1rem;
   }
-  .slide_button {
-    width: auto;
+}
 
-    .btn {
-      color: #000000;
-      background: transparent;
+.slide_button {
+  width: fit-content;
 
-      &.blue_btn {
-        border: 1px solid #c084ff;
-      }
-      &.red_btn {
-        border: 1px solid #33a9ff;
-      }
-      &.orange_btn {
-        border: 1px solid #feb1ea;
-      }
+  .btn {
+    color: #000000;
+    background: transparent;
+    // width: auto;
+    padding: 0;
+
+    &.blue_btn {
+      border: 1px solid #c084ff;
+    }
+    &.red_btn {
+      border: 1px solid #33a9ff;
+    }
+    &.orange_btn {
+      border: 1px solid #feb1ea;
     }
   }
 }
