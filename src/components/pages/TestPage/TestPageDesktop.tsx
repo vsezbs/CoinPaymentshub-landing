@@ -58,6 +58,30 @@ const TestPageDesktop = () => {
             invalidateOnRefresh: true,
           },
         })
+        const h1Timeline = gsap.timeline()
+        h1Timeline.set('.h1-wrapper', { y: 60 })
+        h1Timeline.set('#canvas', { y: 70 })
+        h1Timeline
+          .to(
+            '.h1-wrapper',
+            {
+              y: 0,
+              delay: 2,
+              duration: 1,
+              autoAlpha: 1,
+            },
+            'firstanim',
+          )
+          .to(
+            '#canvas',
+            {
+              y: 0,
+              delay: 2,
+              duration: 1,
+              autoAlpha: 1,
+            },
+            'firstanim',
+          )
 
         firstTl
           .fromTo(

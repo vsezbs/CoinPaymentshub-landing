@@ -5,7 +5,11 @@ import React, { useContext, useEffect, useRef } from 'react'
 
 import s from './Cursor.module.scss'
 
-const Cursor = () => {
+type CursorProps = {
+  isLoading: boolean
+}
+
+const Cursor = ({ isLoading }: CursorProps) => {
   //   const dotRef = useRef<HTMLDivElement>(null)
   const isMobile = useContext(Context)
   const dotOutlineRef = useRef<HTMLDivElement>(null)

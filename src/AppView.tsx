@@ -4,34 +4,85 @@ import MainPage from 'components/pages/MainPage/MainPage'
 import SliderPage from 'components/pages/SliderPage/SliderPage'
 // import ConnectPage from 'components/pages/ConnectPage/ConnectPage'
 import TestPage from 'components/pages/TestPage/TestPage'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import gsap from 'gsap'
 
 import s from './AppView.module.scss'
 
 const AppView = () => {
   const [isLoading, setIsLoading] = useState(true)
-
+  const loaderRef = useRef<any>(null)
+  const loaderRef2 = useRef<any>(null)
   useEffect(() => {
     const bootstrapAsync = async () => {
       try {
+        const ctx = gsap.context(() => {
+          const tl = gsap.timeline()
+          tl.set('.app', { y: '50%', overflow: 'hidden' })
+          tl.set(loaderRef2.current, {
+            background: 'rgb(247, 248, 251)',
+          })
+          tl.to(
+            loaderRef2.current,
+            {
+              delay: 1,
+              duration: 2,
+              y: '-50%',
+              background: '#ffffff',
+              ease: 'power4.out',
+            },
+            'f',
+          )
+          tl.to(
+            loaderRef.current,
+            {
+              delay: 1,
+              duration: 2,
+              y: '-100%',
+              ease: 'power4.out',
+            },
+            'f',
+          )
+          tl.to(
+            loaderRef2.current,
+            {
+              delay: 1,
+              duration: 2,
+              y: '-100%',
+              ease: 'power4.out',
+            },
+            'f',
+          )
+          tl.to(
+            '.app',
+            {
+              y: 0,
+              delay: 1.5,
+              duration: 1,
+              ease: 'power4.out',
+              onComplete: () => {},
+            },
+            'f',
+          )
+        })
       } catch (e) {
         console.log(e)
       }
     }
+
     bootstrapAsync().finally(() => {
       setIsLoading(false)
     })
   }, [])
 
-  return isLoading ? (
-    <div>loading...</div>
-  ) : (
+  return (
     <>
-      <Cursor />
-      <Header />
-
-      <div className={s.app_container}>
+      <Cursor isLoading={isLoading} />
+      <section className={s.loader} ref={loaderRef} />
+      <section className={`${s.loader} ${s.loader2}`} ref={loaderRef2} />
+      <div className={`${s.app_container} app`}>
+        <Header />
         <Routes>
           <Route path="/">
             <Route index element={<MainPage />} />
