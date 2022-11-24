@@ -19,10 +19,12 @@ const AppView = () => {
       try {
         const ctx = gsap.context(() => {
           const tl = gsap.timeline()
-          tl.set('.app', { y: '50%', overflow: 'hidden' })
+          // tl.set('.app', { y: '50%', overflow: 'hidden' })
           tl.set(loaderRef2.current, {
             background: 'rgb(247, 248, 251)',
           })
+          tl.set('.h1-wrapper', { y: 60 })
+          tl.set('.circle', { y: 220, opacity: 0.7 })
           tl.to(
             loaderRef2.current,
             {
@@ -34,37 +36,47 @@ const AppView = () => {
             },
             'f',
           )
-          tl.to(
-            loaderRef.current,
-            {
-              delay: 1,
-              duration: 2,
-              y: '-100%',
-              ease: 'power4.out',
-            },
-            'f',
-          )
-          tl.to(
-            loaderRef2.current,
-            {
-              delay: 1,
-              duration: 2,
-              y: '-100%',
-              ease: 'power4.out',
-            },
-            'f',
-          )
-          tl.to(
-            '.app',
-            {
-              y: 0,
-              delay: 1.5,
-              duration: 1,
-              ease: 'power4.out',
-              onComplete: () => {},
-            },
-            'f',
-          )
+            .to(
+              loaderRef.current,
+              {
+                delay: 1,
+                duration: 2,
+                y: '-100%',
+                ease: 'power4.out',
+              },
+              'f',
+            )
+            .to(
+              loaderRef2.current,
+              {
+                delay: 1,
+                duration: 2,
+                y: '-100%',
+                ease: 'power4.out',
+              },
+              'f',
+            )
+            .to(
+              '.h1-wrapper',
+              {
+                y: 0,
+                delay: 1.5,
+                duration: 1,
+                ease: 'power4.out',
+              },
+              'f',
+            )
+            .to(
+              '.circle',
+              {
+                y: 0,
+                delay: 0.5,
+                duration: 1,
+                ease: 'power4.out',
+                opacity: 1,
+              },
+              'f',
+            )
         })
       } catch (e) {
         console.log(e)
