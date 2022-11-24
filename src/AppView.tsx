@@ -23,8 +23,8 @@ const AppView = () => {
           tl.set(loaderRef2.current, {
             background: 'rgb(247, 248, 251)',
           })
-          tl.set('.h1-wrapper', { y: 60 })
-          tl.set('.circle', { y: 220, opacity: 0.7 })
+          tl.set('.h1-wrapper', { opacity: 0, autoAlpha: 0 })
+          tl.set('.circle', { y: 220 })
           tl.to(
             loaderRef2.current,
             {
@@ -57,16 +57,6 @@ const AppView = () => {
               'f',
             )
             .to(
-              '.h1-wrapper',
-              {
-                y: 0,
-                delay: 1.5,
-                duration: 1,
-                ease: 'power4.out',
-              },
-              'f',
-            )
-            .to(
               '.circle',
               {
                 y: 0,
@@ -77,6 +67,23 @@ const AppView = () => {
               },
               'f',
             )
+          tl.fromTo(
+            '.h1-wrapper',
+            {
+              y: 60,
+              opacity: 0,
+              autoAlpha: 0,
+            },
+            {
+              autoAlpha: 1,
+              y: 0,
+              delay: 1.5,
+              duration: 2,
+              opacity: 1,
+              ease: 'power4.out',
+            },
+            'f',
+          )
         })
       } catch (e) {
         console.log(e)
