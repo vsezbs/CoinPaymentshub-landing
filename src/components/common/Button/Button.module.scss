@@ -21,6 +21,10 @@
     box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.15);
   }
 
+  &.safari {
+    -webkit-mask-image: -webkit-radial-gradient(#ffffff, #ffffff);
+  }
+
   span {
     position: absolute;
     width: 100%;

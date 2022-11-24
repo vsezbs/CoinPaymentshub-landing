@@ -23,6 +23,13 @@ const Button = ({
   const buttonRef = useRef<HTMLDivElement>(null)
   const circleRef = useRef<HTMLSpanElement>(null)
   const textRef = useRef<HTMLDivElement>(null)
+  const isSafari =
+    //@ts-ignore
+    /constructor/i.test(window.HTMLElement) ||
+    (function (p) {
+      return p.toString() === '[object SafariRemoteNotification]'
+      //@ts-ignore
+    })(!window.safari || (typeof safari !== 'undefined' && safari.pushNotification))
   useEffect(() => {
     if (
       buttonRef &&
@@ -91,12 +98,14 @@ const Button = ({
 
   return (
     <div
-      className={`${s.button} ${btnClassName || ''} ${isCircle ? s.circle : ''}`}
+      className={`${s.button} ${btnClassName || ''} ${isCircle ? s.circle : ''} ${
+        isSafari ? s.safari : ''
+      }`}
       ref={buttonRef}
     >
       <span ref={circleRef} />
       <div className={s.wrapper}>
-        <div className={`${s.button_text} ${textClassName || ''}`} ref={textRef}>
+        <div className={`${s.button_text} ${textClassName || ''} `} ref={textRef}>
           {text}
         </div>
         {isIcon ? (
