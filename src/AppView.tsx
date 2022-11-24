@@ -27,7 +27,7 @@ const AppView = () => {
             background: 'rgb(247, 248, 251)',
           })
           tl.set('.h1-wrapper', { opacity: 0, autoAlpha: 0 })
-          tl.set('.circle', { y: isMobile ? 120 : 220 })
+          tl.set('.circle', { y: isMobile ? 120 : 130 })
           tl.to(
             loaderRef2.current,
             {
